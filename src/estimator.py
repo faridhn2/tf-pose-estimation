@@ -256,7 +256,7 @@ class TfPoseEstimator:
             graph_def = tf.compat.v1.GraphDef()
             graph_def.ParseFromString(f.read())
 
-        self.graph = tf.get_default_graph()
+        self.graph = tf.compat.v1.get_default_graph()
         tf.import_graph_def(graph_def, name='TfPoseEstimator')
         self.persistent_sess = tf.Session(graph=self.graph)
 
