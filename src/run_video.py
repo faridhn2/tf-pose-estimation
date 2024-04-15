@@ -21,7 +21,7 @@ fps_time = 0
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='tf-pose-estimation realtime webcam')
-    parser.add_argument('--camera', type=int, default=0)
+    parser.add_argument('--video', type=int, default=0)
     parser.add_argument('--zoom', type=float, default=1.0)
     parser.add_argument('--model', type=str, default='mobilenet_thin_432x368', help='cmu_640x480 / cmu_640x360 / mobilenet_thin_432x368')
     parser.add_argument('--show-process', type=bool, default=False,
@@ -32,7 +32,7 @@ if __name__ == '__main__':
     w, h = model_wh(args.model)
     e = TfPoseEstimator(get_graph_path(args.model), target_size=(w, h))
     logger.debug('cam read+')
-    cam = cv2.VideoCapture(args.camera)
+    cam = cv2.VideoCapture(args.video)
     ret_val, image = cam.read()
     logger.info('cam image=%dx%d' % (image.shape[1], image.shape[0]))
 
