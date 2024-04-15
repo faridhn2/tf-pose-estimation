@@ -6,6 +6,7 @@ from collections import namedtuple
 import cv2
 import numpy as np
 import tensorflow.compat.v1 as tf
+tf.disable_v2_behavior()
 from scipy.ndimage import maximum_filter, gaussian_filter
 
 import common
@@ -252,7 +253,7 @@ class TfPoseEstimator:
         self.target_size = target_size
 
         # load graph
-        with tf.io.gfile.GFile(graph_path, 'rb') as f:
+        with tf.gfile.GFile(graph_path, 'rb') as f:
             graph_def = tf.GraphDef()
             graph_def.ParseFromString(f.read())
 
