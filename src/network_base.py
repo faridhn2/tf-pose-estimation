@@ -10,7 +10,8 @@ import common
 DEFAULT_PADDING = 'SAME'
 
 
-_init_xavier = tf.contrib.layers.xavier_initializer()
+# _init_xavier = tf.contrib.layers.xavier_initializer()
+_init_xavier = tf.initializers.GlorotUniform()
 _init_norm = tf.truncated_normal_initializer(stddev=0.01)
 _init_zero = slim.init_ops.zeros_initializer()
 _l2_regularizer_00004 = tf.contrib.layers.l2_regularizer(0.00004)
