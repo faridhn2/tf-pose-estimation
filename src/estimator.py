@@ -253,7 +253,7 @@ class TfPoseEstimator:
 
         # load graph
         with tf.io.gfile.GFile(graph_path, 'rb') as f:
-            graph_def = tf.GraphDef()
+            graph_def = tf.compat.v1.GraphDef()
             graph_def.ParseFromString(f.read())
 
         self.graph = tf.get_default_graph()
