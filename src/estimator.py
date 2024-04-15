@@ -276,8 +276,8 @@ class TfPoseEstimator:
             }
         )
 
-    def __del__(self):
-        self.persistent_sess.close()
+    # def __del__(self):
+    #     self.persistent_sess.close()
 
     @staticmethod
     def _quantize_img(npimg):
