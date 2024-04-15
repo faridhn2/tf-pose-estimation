@@ -48,8 +48,9 @@ if __name__ == '__main__':
 
     image = cv2.imread(args.image, cv2.IMREAD_COLOR)
     image = TfPoseEstimator.draw_humans(image, humans, imgcopy=False)
-    cv2.imshow('tf-pose-estimation result', image)
-    cv2.waitKey()
+    # cv2.imshow('tf-pose-estimation result', image)
+    # cv2.waitKey()
+    cv2.imwrite('result.jpg',image)
 
     import sys
     sys.exit(0)
@@ -78,8 +79,8 @@ if __name__ == '__main__':
     fig = plt.figure()
     a = fig.add_subplot(2, 2, 1)
     a.set_title('Result')
-    plt.imshow(cv2.cvtColor(image, cv2.COLOR_BGR2RGB))
-
+    # plt.imshow(cv2.cvtColor(image, cv2.COLOR_BGR2RGB))
+    cv2.imwrite('result.jpg',image)
     # show network output
     a = fig.add_subplot(2, 2, 2)
     # plt.imshow(CocoPose.get_bgimg(inp, target_size=(heatmap.shape[1], heatmap.shape[0])), alpha=0.5)
